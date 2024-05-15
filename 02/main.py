@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
+#import seaborn as sns
 
 
 data = pd.read_csv("thecure_discography.csv")
@@ -45,4 +45,11 @@ plt.title('Vztah mezi hlasitostí a rokem vydání')
 plt.xlabel('Rok vydání')
 plt.ylabel('Hlasitost v dB (0 je nejhlasitější)')
 plt.xticks(years, rotation=45)
+plt.show()
+
+#popularita vs tanecnost
+plt.scatter(data['danceability'], data['track_popularity'], alpha=0.7)
+plt.title('Vztah mezi tanečností a popularitou')
+plt.xlabel('Tanečnost')
+plt.ylabel('Popularita')
 plt.show()
