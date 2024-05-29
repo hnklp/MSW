@@ -16,7 +16,7 @@ print(data.album_release_year)
 plt.bar(data['key'], data['track_popularity'])
 plt.title('Vztah mezi tóninou a popularitou')
 plt.xlabel('Tónina')
-plt.ylabel('Popularita')
+plt.ylabel('Popularita v %')
 plt.show()
 
 #Histogram delky skladeb
