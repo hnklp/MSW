@@ -1,6 +1,5 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-#import seaborn as sns
 
 
 data = pd.read_csv("thecure_discography.csv")
@@ -40,10 +39,11 @@ plt.axis('equal')
 plt.show()
 
 #hlasitost x rok vydani
-plt.bar(years, data.groupby('album_release_year')['loudness'].mean(), width=0.8)
+inverted_loudness = -data['loudness']
+plt.bar(data['album_release_year'], inverted_loudness, width=0.8)
 plt.title('Vztah mezi hlasitostí a rokem vydání')
 plt.xlabel('Rok vydání')
-plt.ylabel('Hlasitost v dB (0 je nejhlasitější)')
+plt.ylabel('Hlasitost v dB')
 plt.xticks(years, rotation=45)
 plt.show()
 

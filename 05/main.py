@@ -41,9 +41,9 @@ def open_method(func, x0, tol=1e-6):
 # Nastavení počátečních intervalů pro každou funkci
 
 
-interval_func1 = (0, 5)
-interval_func2 = (-1, 1)
-interval_func3 = (0, math.pi)
+interval_func1 = (-64, 54)
+interval_func2 = (-10, 11)
+interval_func3 = (-24, math.pi)
 
 # Testování uzavřené metody
 print("Uzavřená metoda (metoda půlení intervalu):")
