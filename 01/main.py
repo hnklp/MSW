@@ -16,11 +16,20 @@ def standard_python_factorial(n):
         result *= i
     return result
 
+
 def numpy_factorial(n):
     return np.prod(np.arange(1, n+1))
 
+import math
+
 def standard_python_sin(x):
-    return sum([(-1)**i * x**(2*i+1) / np.prod(np.arange(1, 2*i+2)) for i in range(10)])
+    # Taylor series approximation for sine
+    sin_x = 0
+    for i in range(10):  # Using 10 terms for the approximation
+        sign = (-1) ** i
+        term = sign * x ** (2 * i + 1) / math.factorial(2 * i + 1)
+        sin_x += term
+    return sin_x
 
 def numpy_sin(x):
     return np.sin(x)
@@ -32,9 +41,18 @@ def scipy_integration():
     return integrate.quad(lambda x: x**2, 0, 10000)[0]
 
 def standard_python_solve_equation():
-    x = sp.Symbol('x')
-    equation = x**2 - 4
-    return sp.solve(equation, x)
+    a = 1
+    b = 0
+    c = -4
+
+    # Calculate the discriminant
+    discriminant = b ** 2 - 4 * a * c
+
+    # Calculate the two solutions
+    root1 = (-b + discriminant ** 0.5) / (2 * a)
+    root2 = (-b - discriminant ** 0.5) / (2 * a)
+
+    return [root2, root1]
 
 def sympy_solve_equation():
     x = sp.Symbol('x')
@@ -85,12 +103,12 @@ print("Numerická integrace pomocí SciPy:", result6, "Čas:", end_time - start_
 start_time = time.perf_counter()
 result7 = standard_python_solve_equation()
 end_time = time.perf_counter()
-print("Řešení symbolické rovnice v čistém Pythonu:", result7, "Čas:", end_time - start_time, "sekund")
+print("Řešení kvadratické rovnice v čistém Pythonu:", result7, "Čas:", end_time - start_time, "sekund")
 
 start_time = time.perf_counter()
 result8 = sympy_solve_equation()
 end_time = time.perf_counter()
-print("Řešení symbolické rovnice pomocí SymPy:", result8, "Čas:", end_time - start_time, "sekund")
+print("Řešení kvadratické rovnice pomocí SymPy:", result8, "Čas:", end_time - start_time, "sekund")
 
 # Pro maticové násobení vytvoříme náhodné matice
 a = np.random.rand(100, 100)
