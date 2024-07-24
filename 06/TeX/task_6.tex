@@ -1,0 +1,36 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[czech]{babel}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{}{0pt}{}
+\titleformat{\subsection}[block]{\normalfont\large\bfseries}{}{0pt}{}
+\titleformat{\subsubsection}[block]{\normalfont\normalsize\bfseries}{}{0pt}{}
+\pagestyle{empty}
+
+\begin{document}
+	\section {Úloha 6 - Generování náhodných čísel a testování generátorů}
+	\subsection{Zadání}
+Tento úkol bude poněkud kreativnější charakteru. Vaším úkolem je vytvořit vlastní generátor semínka do pseudonáhodných algoritmů. Jazyk Python umí sbírat přes ovladače hardwarových zařízení různá fyzická a fyzikální data. Můžete i sbírat data z historie prohlížeče, snímání pohybu myší, vyzvání uživatele zadat náhodné úhozy do klávesnice a jiná unikátní data uživatelů. 
+
+\subsection{Řešení}
+Můj generátor semínek do pseudonáhodných algoritmů využívá vložené WAV soubory. Nejdříve WAV soubory otevře a načte jejich rámce. Ty se pak převedou na numpy pole. Poté využije součet absolutních hodnot jejich rámců pro vygenerování semínka. V tomto příkladu používám dva WAV soubory, s jejichž semínky se pak provede následující operace:
+
+\begin{lstlisting}[language=Python]
+seed1 + seed2 / np.pi * seed2 / seed1 / random.randint(10, 785410)
+\end{lstlisting}
+\justify
+která následně vrátí finální semínko použité ve funkci random.randint(), kde je vypsáno na standardní výstup. V tomto příkladu generuji pět čísel. Výsledek vypadá takto:
+\justify
+Semínko: 1947876781.708661\\
+Náhodná čísla: [112417021688641, 328604045480135, 90813242632018, 200443802296886, 30682555226394]
+\justify
+Využil jsem dva přiložené WAV soubory, \textit{smrt.wav} a \textit{jubilejni{\textunderscore}den.wav}. Tento způsob generování by mohl mít dobré využití např. při použití živého zvuku z mikrofonu na hodně rušné ulici.
+	
+\end{document}

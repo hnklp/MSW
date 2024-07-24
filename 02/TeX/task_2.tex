@@ -1,0 +1,38 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[czech]{babel}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{}{0pt}{}
+\titleformat{\subsection}[block]{\normalfont\large\bfseries}{}{0pt}{}
+\titleformat{\subsubsection}[block]{\normalfont\normalsize\bfseries}{}{0pt}{}
+
+\begin{document}
+	\section {Úloha 2 - Vizualizace dat}
+	\subsection{Zadání}
+V jednom ze cvičení jste probírali práci s moduly pro vizualizaci dat. Mezi nejznámější moduly patří matplotlib (a jeho nadstavby jako seaborn), pillow, opencv, aj. Vyberte si nějakou zajímavou datovou sadu na webovém portále Kaggle a proveďte datovou analýzu datové sady. Využijte k tomu různé typy grafů a interpretujte je (minimálně alespoň 5 zajímavých grafů). Příklad interpretace: z datové sady pro počasí vyplynulo z liniového grafu, že v létě je vyšší rozptyl mezi minimální a maximální hodnotou teploty. Z jiného grafu vyplývá, že v létě je vyšší průměrná vlhkost vzduchu. Důvodem vyššího rozptylu může být absorpce záření vzduchem, který má v létě vyšší tepelnou kapacitu.
+
+\subsection{Řešení}
+\justify
+Pro tuto úlohu jsem použil datovou sadu o diskografii kapely The Cure z portálu Kaggle. K analýze a vizualizaci dat využívám knihovnu \textit{pandas} pro manipulaci s daty a \textit{matplotlib} pro tvorbu grafů.
+\justify
+\subsubsection{1. Načtení dat a předzpracování}
+Data se načtou z CSV souboru a celé datumy z \textit{album{\textunderscore}release{\textunderscore}date} převedu na rok \textit{album{\textunderscore}release{\textunderscore}year}. Pro mé účely je to dostačující přesnost a navíc se tím i zlepší čitelnost grafů.
+\subsubsection{2. Vztah mezi tóninou (key) a popularitou skladeb}
+Bar plot ukazuje průměrnou popularitu skladeb v různých tóninách. Tento graf nám umožňuje vidět, zda existuje vztah mezi tóninou skladby a její oblíbeností.
+\subsubsection{3. Histogram délky skladeb}
+Histogram zobrazuje rozložení délky skladeb v minutách. Z něj lze vyčíst, jaká je typická délka skladby.
+\subsubsection{4. Podíl instrumentálních skladeb}
+Koláčový graf ukazuje procentuální podíl instrumentálních skladeb oproti skladbám s vokály, což poskytuje přehled o tom, kolik skladeb je čistě instrumentálních.
+\subsubsection{5. Vztah mezi hlasitostí a rokem vydání}
+Bar plot zobrazuje průměrnou hlasitost skladeb v různých letech. Tento graf může naznačovat změny v produkčním stylu kapely během jejich kariéry. Zde předpokládám, že hlasitost skladeb v CSV souboru byla měřena na souborech s normalizovanou hlasitostí.
+\subsubsection{6. Vztah mezi tanečností (danceability, jak dobře se na danou skladbu tancuje) a popularitou skladeb}
+Scatter plot vizualizuje vztah mezi tanečností skladeb a jejich oblíbeností, což může poskytnout informace o tom, zda tanečnost skladeb ovlivňuje jejich popularitu.
+	
+\end{document}

@@ -1,0 +1,38 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[czech]{babel}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{}{0pt}{}
+\titleformat{\subsection}[block]{\normalfont\large\bfseries}{}{0pt}{}
+\titleformat{\subsubsection}[block]{\normalfont\normalsize\bfseries}{}{0pt}{}
+\pagestyle{empty}
+
+\begin{document}
+	\section {Úloha 8 - Derivace funkce jedné proměnné}
+	\subsection{Zadání}
+Numerická derivace je velice krátké téma. V hodinách jste se dozvěděli o nejvyužívanějších typech numerické derivace (dopředná, zpětná, centrální). Jedno z neřešených témat na hodinách byl problém volby kroku. V praxi je vhodné mít krok dynamicky nastavitelný. Algoritmům tohoto typu se říká derivace s adaptabilním krokem. Cílem tohoto zadání je napsat program, který provede numerickou derivaci s adaptabilním krokem pro vámi vybranou funkci. Proveďte srovnání se statickým krokem a analytickým řešením.
+
+\subsection{Řešení}
+\justify
+Pro výpočet numerické derivace s adaptabilním krokem používám metodu dvojitého kroku. Funkce bude iterovat s krokem $h$, poté s krokem $h/2$ a vypočítá numerickou derivaci pomocí centrální diference. Pokud je rozdíl mezi výsledky menší než zvolená tolerance, výpočet končí. Pokud není, funkce se opakuje s krokem $h/2$ a novým středovým bodem.\\
+\justify
+Dále mám funkci pro výpočet numerické derivace s pevným krokem. Použijeme opět centrální diferenci s krokem $h$, kde $h$ je pevně zvolené číslo.\\
+\justify
+Zde je porovnání jednotlivých výsledků pro $x=\frac{\pi}{4}$:\\
+\justify
+Analytická derivace: $0.7071067811865476$\\
+Numerická derivace s pevným krokem: $0.7059288589999413$\\
+Numerická derivace s adaptabilním krokem: $0.7071056302971712$\\
+\justify
+Vidíme, že všechny tři výsledky jsou podobné. Numerická derivace s adaptabilním krokem je o něco přesnější než numerická derivace s pevným krokem, ale obě jsou velmi blízko analytické derivaci.
+
+
+	
+\end{document}

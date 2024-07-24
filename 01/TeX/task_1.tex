@@ -1,0 +1,62 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[czech]{babel}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{}{0pt}{}
+\titleformat{\subsection}[block]{\normalfont\large\bfseries}{}{0pt}{}
+\titleformat{\subsubsection}[block]{\normalfont\normalsize\bfseries}{}{0pt}{}
+
+\begin{document}
+	\section {Úloha 1 - Knihovny a moduly pro matematické\\ výpočty}
+	\subsection{Zadání}
+V tomto kurzu jste se učili s některými vybranými knihovnami. Některé sloužily pro rychlé vektorové operace, jako numpy, některé mají naprogramovány symbolické manipulace, které lze převést na numerické reprezentace (sympy), některé mají v sobě funkce pro numerickou integraci (scipy). Některé slouží i pro rychlé základní operace s čísly (numba).
+\justify
+Vaším úkolem je změřit potřebný čas pro vyřešení nějakého problému (např.: provést skalární součin, vypočítat určitý integrál) pomocí standardního pythonu a pomocí specializované knihovny. Toto měření proveďte alespoň pro 5 různých úloh (ne pouze jiná čísla, ale úplně jiné téma) a minimálně porovnejte rychlost jednoho modulu se standardním pythonem. Ideálně proveďte porovnání ještě s dalším modulem a snažte se, ať je kód ve standardním pythonu napsán efektivně.  
+
+
+
+\subsection{Řešení}
+\subsubsection{1. Výpočet faktoriálu}
+Tato úloha se zabývá výpočtem faktoriálu. Nejdříve bez pomoci knihoven a poté pomocí
+knihovny \textit{SymPy}. Časová náročnost je následující:
+\justify
+Výpočet (Python):  1.8854195330059156\\
+Výpočet (SymPy):  0.1536074520117836\\
+\subsubsection{2. Výpočet sin(x)}
+Tentokrát porovnáváme 3 knihovny - \textit{Math}, \textit{NumPy} a \textit{SymPy}.
+\justify
+Čas výpočtu (Python):  0.00030469500052277\\
+Čas výpočtu (NumPy):   0.0011716900044120848\\
+Čas výpočtu (Sympy):   0.6211337630084017
+\justify
+Python s pomocí knihovny math je zde nejrychlejší. Po něm je NumPy a poté SymPy.\\
+\subsubsection{3. Násobení matic}
+Tato úloha ukazuje  efektivitu násobení matic o velikosti 3x3 pomocí knihovny \textit{NumPy}.
+\justify
+Čas výpočtu (Python):  0.00018488299974706024\\
+Čas výpočtu (NumPy):  0.00012147700181230903
+\justify
+Výsledky ukazují, že je knihovna NumPy výrazně rychlejší. Python využívá tři vnořené smyčky k výpočtu, zatímco NumPy používá vektorové operace pro rychlejší výpočet.\\
+\subsubsection{4. Výpočet faktoriálu}
+Tato úloha se zabývá výpočtem faktoriálu. Nejdřív pomocí Pythonu a poté pomocí
+knihovny \textit{Math}.
+\justify
+Čas výpočtu (Python):  0.15173245201003738\\
+Čas výpočtu (Math):  0.01574059799895622\\
+\subsection{5. Aritmetický průměr}
+Tato úloha ukazuje délku výpočtu aritmetického průměru seznamu čísel o délce\\3 524 287 čísel. 
+\justify
+Čas výpočtu (Python):  0.031385743990540504\\
+Čas výpočtu (NumPy):   0.009323335994849913
+\justify
+Ve výsledcích můžeme vidět, že výpočet za pomoci \textit{NumPy} je výrazně rychlejší. Python musí projít celý seznam a získat sumu prvků, zatímco \textit{NumPy} vypočítá průměr pomocí své vestavěné funkce mean().\\
+
+	
+\end{document}
