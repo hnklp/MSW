@@ -20,7 +20,7 @@
 Metoda Monte Carlo představuje rodinu metod a filozofický přístup k modelování jevů, který využívá vzorkování prostoru (například prostor čísel na herní kostce, které mohou padnout) pomocí pseudonáhodného generátoru čísel. Jelikož se jedná spíše o filozofii řešení problému, tak využití je téměř neomezené. Na hodinách jste viděli několik aplikací (optimalizace portfolia aktiv, řešení Monty Hall problému, integrace funkce, aj.). Nalezněte nějaký zajímavý problém, který nebyl na hodině řešen, a získejte o jeho řešení informace pomocí metody Monte Carlo. Můžete využít kódy ze sešitu z hodin, ale kontext úlohy se musí lišit. 
 
 \subsection{Řešení}
-Pro demonstraci metody Monte Carlo jsem se rozhodnul odhadnout hodnotu čísla π. K odhadu hodnoty π používám generování náhodných bodů uvnitř jednotkového čtverce a poté určujeme, kolik z těchto bodů spadá do jednotkového kruhu.
+Pro demonstraci metody Monte Carlo jsem se rozhodnul odhadnout hodnotu čísla $\pi$. K odhadu hodnoty $\pi$ používám generování náhodných bodů uvnitř jednotkového čtverce a poté určujeme, kolik z těchto bodů spadá do jednotkového kruhu.
 \subsubsection{1. Definice počtu náhodných bodů}
 \textit{num{\textunderscore}samples = 1000000} určuje počet generovaných náhodných bodů. Čím více bodů, tím přesnější bude odhad hodnoty $\pi$.
 \subsubsection{2. Generování náhodných bodů}
@@ -28,7 +28,7 @@ $x$ a $y$ jsou pole náhodných čísel v rozmezí $[-1, 1]$, která představuj
 \subsubsection{3. Určení bodů uvnitř jednotkového kruhu}
 \textit{inside{\textunderscore}circle = x**2 + y**2 <= 1} kontroluje, zda body leží uvnitř kruhu o poloměru 1 (jednotkový kruh).
 \subsubsection{4. Výpočet přibližné hodnoty $\pi$}
-pi{\textunderscore}estimate = 4 * np.sum(inside{\textunderscore}circle) / num{\textunderscore}samples vypočítává odhad hodnoty π na základě poměru počtu bodů uvnitř kruhu k celkovému počtu bodů, vynásobeného 4 (protože plocha čtvrtkruhu je $\frac{\pi}{4}$).
+pi{\textunderscore}estimate = 4 * np.sum(inside{\textunderscore}circle) / num{\textunderscore}samples vypočítává odhad hodnoty $\pi$ na základě poměru počtu bodů uvnitř kruhu k celkovému počtu bodů, vynásobeného 4 (protože plocha čtvrtkruhu je $\frac{\pi}{4}$).
 
 	
 \end{document}
