@@ -1,7 +1,7 @@
 import numpy as np
 
 # Počet náhodných bodů
-num_samples = 100000000
+num_samples = 1000000
 
 # Generování náhodných bodů v jednotkovém čtverci
 x = np.random.uniform(-1, 1, num_samples)
