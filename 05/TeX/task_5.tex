@@ -1,0 +1,41 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[czech]{babel}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{}{0pt}{}
+\titleformat{\subsection}[block]{\normalfont\large\bfseries}{}{0pt}{}
+\titleformat{\subsubsection}[block]{\normalfont\normalsize\bfseries}{}{0pt}{}
+\pagestyle{empty}
+
+\begin{document}
+	\section {Úloha 5 - Hledání kořenů rovnice}
+	\subsection{Zadání}
+Vyhledávání hodnot, při kterých dosáhne zkoumaný signál vybrané hodnoty je důležitou součástí analýzy časových řad. Pro tento účel existuje spousta zajímavých metod. Jeden typ metod se nazývá ohraničené (například metoda půlení intervalu), při kterých je zaručeno nalezení kořenu, avšak metody typicky konvergují pomalu. Druhý typ metod se nazývá neohraničené, které konvergují rychle, avšak svojí povahou nemusí nalézt řešení (metody využívající derivace). Vaším úkolem je vybrat tři různorodé funkce (například polynomiální, exponenciální/logaritmickou, harmonickou se směrnicí, aj.), které mají alespoň jeden kořen a nalézt ho jednou uzavřenou a jednou otevřenou metodou. Porovnejte časovou náročnost nalezení kořene a přesnost nalezení.
+
+\subsection{Řešení}
+Pro nalezení kořenů funkcí jsem využil ohraničenou metodu půlení intervalu a neohraničenou metodu Newtonovy metody. Tolerance chyby v mé implementaci je $10^{-10}$.
+	\subsubsection{Funkce $f(x)=x^{2}-4$}
+		\begin{enumerate}
+			\item Metoda půlení intervalu\\$x=-1.9999999999708961695432663$\\Časová náročnost: 0.0000440880030510015785694 sekund
+			\item Newtonova metoda\\$x=2.0000000000000000000000000$\\Časová náročnost: 0.0048414449993288144469261 sekund	\end{enumerate}
+	\subsubsection{Funkce $f(x)=x^{3}-2$}
+		\begin{enumerate}
+			\item Metoda půlení intervalu\\$x=1.2599210498156026005744934$\\Časová náročnost: 0.0000231319936574436724186 sekund
+			\item Newtonova metoda\\$x=1.2599210498948731906665444$\\Časová náročnost: 0.0038661680009681731462479 sekund	\end{enumerate}
+	\subsubsection{Funkce $f(x)=x^{2}-9$}
+		\begin{enumerate}
+			\item Metoda půlení intervalu\\$x=2.9999999998253770172595978$\\Časová náročnost: 0.0000237130007008090615273 sekund
+			\item Newtonova metoda\\$x=3.0000000000000000000000000$\\Časová náročnost: 0.0011777550025726668536663 sekund
+			\end{enumerate}
+			
+\subsubsection{}
+Z výsledků je patrné, že ohraničená metoda půlení intervalu je pomalejší.
+\end{document}
